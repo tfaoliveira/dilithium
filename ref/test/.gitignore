@@ -4,6 +4,9 @@ test_dilithium5
 test_vectors2
 test_vectors3
 test_vectors5
+test_api2
+test_api3
+test_api5
 test_speed2
 test_speed3
 test_speed5

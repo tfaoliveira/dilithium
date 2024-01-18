@@ -17,9 +17,17 @@ all: \
   test/test_vectors2 \
   test/test_vectors3 \
   test/test_vectors5 \
+  test/test_api2 \
+  test/test_api3 \
+  test/test_api5 \
   nistkat/PQCgenKAT_sign2 \
   nistkat/PQCgenKAT_sign3 \
   nistkat/PQCgenKAT_sign5 \
+
+api: \
+  test/test_api2 \
+  test/test_api3 \
+  test/test_api5
 
 speed: \
   test/test_mul \
@@ -77,6 +85,18 @@ test/test_vectors5: test/test_vectors.c $(KECCAK_SOURCES) \
 	$(CC) $(CFLAGS) -DDILITHIUM_MODE=5 \
 	  -o $@ $< $(KECCAK_SOURCES)
 
+test/test_api2: test/test_api.c
+	$(CC) $(CFLAGS) -DDILITHIUM_MODE=2 \
+	  -o $@ $<
+
+test/test_api3: test/test_api.c
+	$(CC) $(CFLAGS) -DDILITHIUM_MODE=3 \
+	  -o $@ $<
+
+test/test_api5: test/test_api.c
+	$(CC) $(CFLAGS) -DDILITHIUM_MODE=5 \
+	  -o $@ $<
+
 test/test_speed2: test/test_speed.c test/speed_print.c test/speed_print.h \
   test/cpucycles.c test/cpucycles.h randombytes.c $(KECCAK_SOURCES) \
   $(KECCAK_HEADERS)
@@ -128,6 +148,9 @@ clean:
 	rm -f test/test_vectors2
 	rm -f test/test_vectors3
 	rm -f test/test_vectors5
+	rm -f test/test_api2
+	rm -f test/test_api3
+	rm -f test/test_api5
 	rm -f test/test_speed2
 	rm -f test/test_speed3
 	rm -f test/test_speed5
