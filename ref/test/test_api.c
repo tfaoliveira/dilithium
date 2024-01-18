@@ -31,19 +31,19 @@ int main(void)
 
   if(namespace_PUBLICKEYBYTES != CRYPTO_PUBLICKEYBYTES) {
     fprintf(stderr, "params.h PUBLICKEYBYTES (%d) != api.h CRYPTO_PUBLICKEYBYTES (%d)\n",
-      namespace_PUBLICKEYBYTES,  CRYPTO_PUBLICKEYBYTES);
+      CRYPTO_PUBLICKEYBYTES, namespace_PUBLICKEYBYTES);
     ret = -1;
   }
 
   if(namespace_SECRETKEYBYTES != CRYPTO_SECRETKEYBYTES) {
     fprintf(stderr, "params.h SECRETKEYBYTES (%d) != api.h CRYPTO_SECRETKEYBYTES (%d)\n",
-      namespace_SECRETKEYBYTES,  CRYPTO_SECRETKEYBYTES);
+      CRYPTO_SECRETKEYBYTES, namespace_SECRETKEYBYTES);
     ret = -1;
   }
 
   if(namespace_BYTES != CRYPTO_BYTES) {
     fprintf(stderr, "params.h BYTES (%d) != api.h CRYPTO_BYTES (%d)\n",
-      namespace_BYTES,  CRYPTO_BYTES);
+      CRYPTO_BYTES, namespace_BYTES);
     ret = -1;
   }
 
